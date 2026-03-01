@@ -19,7 +19,8 @@ services:
     build: .
     container_name: todo-app
     depends_on:
-      - mysql
+      mysql:
+        condition: service_healthy
     environment:
       DB_HOST: mysql
       DB_NAME: todo_item_app

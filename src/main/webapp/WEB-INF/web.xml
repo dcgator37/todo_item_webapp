@@ -2,6 +2,7 @@
     <servlet>
         <servlet-name>TodoServlet</servlet-name>
         <servlet-class>servlet.TodoServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
     </servlet>
 
     <servlet-mapping>
