@@ -26,13 +26,17 @@ public class TodoDatabase {
     }
 
     public void add(String text) throws Exception {
+        System.out.println("DAO.add() called with text: " + text);
         try (Connection conn = DatabaseUtil.getConnection();
              PreparedStatement ps =
                      conn.prepareStatement("INSERT INTO todo(text) VALUES (?)")) {
             ps.setString(1, text);
-            ps.executeUpdate();
-
-            System.out.println("Inserted todo: " + text);
+            int rows = ps.executeUpdate();  // must be executeUpdate, not executeQuery
+            System.out.println("Rows inserted: " + rows);
+        } catch (Exception e) {
+            System.out.println("!!! DAO.add() FAILED !!!");
+            e.printStackTrace();
+            throw e;
         }
     }
 
