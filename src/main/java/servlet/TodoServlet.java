@@ -21,7 +21,7 @@ public class TodoServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-
+        System.out.println("=== doGet called ===");
         try {
             req.setAttribute("items", dao.findAll());
             req.getRequestDispatcher("/index.jsp").forward(req, resp);
