@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.Statement;
 
+
+
 public class DatabaseUtil {
     private static final String DB_HOST =
             System.getenv().getOrDefault("DB_HOST", "localhost");
@@ -17,6 +19,15 @@ public class DatabaseUtil {
     private static final String URL =
             "jdbc:mysql://" + DB_HOST + ":3306/" + DB_NAME +
                     "?useSSL=false&serverTimezone=UTC";
+
+    static {
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            System.out.println("MySQL JDBC Driver loaded explicitly");
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException("MySQL Driver not found", e);
+        }
+    }
 
     //static {
 //        try (Connection conn = getConnection();
