@@ -31,6 +31,8 @@ public class TodoDatabase {
                      conn.prepareStatement("INSERT INTO todo(text) VALUES (?)")) {
             ps.setString(1, text);
             ps.executeUpdate();
+
+            System.out.println("Inserted todo: " + text);
         }
     }
 
