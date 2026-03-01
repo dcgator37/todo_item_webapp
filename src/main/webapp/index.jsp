@@ -19,8 +19,12 @@
 
 <ul>
     <%
-        List<TodoItem> items = (List<TodoItem>) request.getAttribute("items");
-        for (TodoItem item : items) {
+        Object obj = request.getAttribute("items");
+
+        if (obj != null) {
+            List<?> items = (List<?>) obj;
+            for (Object o : items) {
+                TodoItem item = (TodoItem) o;
     %>
     <li>
         <%= item.getText() %>
@@ -30,14 +34,21 @@
             <button type="submit">Delete</button>
         </form>
     </li>
-    <% } %>
+    <%
+        }
+    } else {
+    %>
+    <li>No items found</li>
+    <%
+        }
+    %>
 </ul>
 
 <h3>Add Item</h3>
 <form method="post">
-    <input type="hidden" name="action" value="add"/>
-    <input name="text"/>
-    <button type="submit">Add</button>
+<input type="hidden" name="action" value="add"/>
+<input name="text"/>
+<button type="submit">Add</button>
 </form>
 
 </body>
