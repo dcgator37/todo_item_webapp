@@ -45,9 +45,9 @@
 </ul>
 
 <h3>Add Item</h3>
-<form method="post">
+<form method="post" action="${pageContext.request.contextPath}/">
 <input type="hidden" name="action" value="add"/>
-<input name="text"/>
+<input type="text" name="text"/>
 <button type="submit">Add</button>
 </form>
 
