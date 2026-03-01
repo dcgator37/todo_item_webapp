@@ -46,6 +46,7 @@ public class DatabaseUtil {
     //}
 
     public static Connection getConnection() throws Exception {
+        System.out.println("=== Returning database connection ===");
         return DriverManager.getConnection(URL, DB_USER, DB_PASSWORD);
     }
 

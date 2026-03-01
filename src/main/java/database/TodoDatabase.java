@@ -11,9 +11,14 @@ public class TodoDatabase {
     public List<TodoItem> findAll() throws Exception {
         List<TodoItem> items = new ArrayList<>();
 
-        try (Connection conn = DatabaseUtil.getConnection();
-             Statement stmt = conn.createStatement();
-             ResultSet rs = stmt.executeQuery("SELECT * FROM todo")) {
+        //(Connection conn = DatabaseUtil.getConnection();
+        //Statement stmt = conn.createStatement();
+        //ResultSet rs = stmt.executeQuery("SELECT * FROM todo"))
+
+        try {
+            Connection conn = DatabaseUtil.getConnection();
+            Statement stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT * FROM todo");
 
             while (rs.next()) {
                 items.add(new TodoItem(
@@ -21,6 +26,9 @@ public class TodoDatabase {
                         rs.getString("text")
                 ));
             }
+        }  catch (Exception e) {
+            e.printStackTrace();
+            throw e;
         }
         return items;
     }
