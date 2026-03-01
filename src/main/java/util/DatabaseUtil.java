@@ -5,10 +5,18 @@ import java.sql.DriverManager;
 import java.sql.Statement;
 
 public class DatabaseUtil {
+    private static final String DB_HOST =
+            System.getenv().getOrDefault("DB_HOST", "localhost");
+    private static final String DB_NAME =
+            System.getenv().getOrDefault("DB_NAME", "todo_item_app");
+    private static final String DB_USER =
+            System.getenv().getOrDefault("DB_USER", "todo_user");
+    private static final String DB_PASSWORD =
+            System.getenv().getOrDefault("DB_PASSWORD", "todo_password");
+
     private static final String URL =
-            "jdbc:mysql://localhost:3306/todo_item_app?useSSL=false&serverTimezone=UTC";
-    private static final String USER = "todo_user";
-    private static final String PASSWORD = "todo_password";
+            "jdbc:mysql://" + DB_HOST + ":3306/" + DB_NAME +
+                    "?useSSL=false&serverTimezone=UTC";
 
     static {
         try (Connection conn = getConnection();
@@ -27,6 +35,6 @@ public class DatabaseUtil {
     }
 
     public static Connection getConnection() throws Exception {
-        return DriverManager.getConnection(URL, USER, PASSWORD);
+        return DriverManager.getConnection(URL, DB_USER, DB_PASSWORD);
     }
 }

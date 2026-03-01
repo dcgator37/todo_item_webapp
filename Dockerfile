@@ -1,4 +1,5 @@
-FROM eclipse-temurin:25-jdk
-WORKDIR /app
-COPY target/todo-item_webapp.war app.war
-CMD ["java", "-jar", "app.war"]
+FROM tomcat:10.1-jdk25
+
+COPY target/todo-webapp.war /usr/local/tomcat/webapps/ROOT.war
+
+EXPOSE 8080
