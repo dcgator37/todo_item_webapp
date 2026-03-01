@@ -1,9 +1,8 @@
 package servlet;
 
 import database.TodoDatabase;
+import jakarta.servlet.ServletException;
 import util.DatabaseUtil;
-
-import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import java.io.IOException;
 
@@ -13,8 +12,9 @@ public class TodoServlet extends HttpServlet {
 
     @Override
     public void init() {
+        DatabaseUtil.initializeDatabase();
         dao = new TodoDatabase();
-        util.DatabaseUtil.initializeDatabase();
+
     }
 
     @Override
