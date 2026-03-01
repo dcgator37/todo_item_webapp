@@ -43,6 +43,6 @@ public class TodoServlet extends HttpServlet {
             throw new RuntimeException(e);
         }
 
-        resp.sendRedirect("/");
+        resp.sendRedirect(req.getContextPath() + "/");
     }
 }
