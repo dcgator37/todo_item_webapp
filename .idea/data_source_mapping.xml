@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourcePerFileMappings">
+    <file url="file://$APPLICATION_CONFIG_DIR$/consoles/db/b7312499-885e-4beb-8361-2bbbe87b8e7d/console.sql" value="b7312499-885e-4beb-8361-2bbbe87b8e7d" />
+    <file url="file://$PROJECT_DIR$/src/main/java/database/TodoDatabase.java" value="b7312499-885e-4beb-8361-2bbbe87b8e7d" />
+  </component>
+</project>
