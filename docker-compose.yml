@@ -7,7 +7,7 @@ services:
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: rootpassword
-      MYSQL_DATABASE: todo_item_app
+      MYSQL_DATABASE: todo_app
       MYSQL_USER: todo_user
       MYSQL_PASSWORD: todo_password
     ports:
