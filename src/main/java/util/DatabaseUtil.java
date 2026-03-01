@@ -18,7 +18,27 @@ public class DatabaseUtil {
             "jdbc:mysql://" + DB_HOST + ":3306/" + DB_NAME +
                     "?useSSL=false&serverTimezone=UTC";
 
-    static {
+    //static {
+//        try (Connection conn = getConnection();
+//             Statement stmt = conn.createStatement()) {
+//
+//            stmt.execute("""
+//                CREATE TABLE IF NOT EXISTS todo (
+//                    id INT AUTO_INCREMENT PRIMARY KEY,
+//                    text VARCHAR(255) NOT NULL
+//                )
+//            """);
+//
+//        } catch (Exception e) {
+//            throw new RuntimeException(e);
+//        }
+    //}
+
+    public static Connection getConnection() throws Exception {
+        return DriverManager.getConnection(URL, DB_USER, DB_PASSWORD);
+    }
+
+    public static void initializeDatabase() {
         try (Connection conn = getConnection();
              Statement stmt = conn.createStatement()) {
 
@@ -29,12 +49,10 @@ public class DatabaseUtil {
                 )
             """);
 
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
-    }
+            System.out.println("Database initialized");
 
-    public static Connection getConnection() throws Exception {
-        return DriverManager.getConnection(URL, DB_USER, DB_PASSWORD);
+        } catch (Exception e) {
+            throw new RuntimeException("Failed to initialize database", e);
+        }
     }
 }
