@@ -22,7 +22,7 @@ services:
       - mysql
     environment:
       DB_HOST: mysql
-      DB_NAME: todo_app
+      DB_NAME: todo_item_app
       DB_USER: todo_user
       DB_PASSWORD: todo_password
     ports:
