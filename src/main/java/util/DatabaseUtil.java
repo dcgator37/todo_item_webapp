@@ -18,7 +18,7 @@ public class DatabaseUtil {
 
     private static final String URL =
             "jdbc:mysql://" + DB_HOST + ":3306/" + DB_NAME +
-                    "?useSSL=false&serverTimezone=UTC";
+                    "?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true";
 
     static {
         try {
