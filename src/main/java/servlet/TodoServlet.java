@@ -26,6 +26,7 @@ public class TodoServlet extends HttpServlet {
         System.out.println("=== doGet called ===");
         try {
             List<TodoItem> items = dao.findAll();
+            System.out.println(items);
             req.setAttribute("items", items);
             req.getRequestDispatcher("/index.jsp").forward(req, resp);
         } catch (Exception e) {
