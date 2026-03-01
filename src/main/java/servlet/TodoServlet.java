@@ -33,16 +33,21 @@ public class TodoServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp)
             throws IOException {
+        System.out.println("=== doPost called ===");
+        req.getParameterMap().forEach((k, v) -> System.out.println(k + " -> " + String.join(",", v)));
+
 
         String action = req.getParameter("action");
 
         try {
             if ("add".equals(action)) {
+                System.out.println("doPost() adding text: " + req.getParameter("text"));
                 dao.add(req.getParameter("text"));
             } else if ("delete".equals(action)) {
                 dao.delete(Integer.parseInt(req.getParameter("id")));
             }
         } catch (Exception e) {
+            e.printStackTrace();
             throw new RuntimeException(e);
         }
 

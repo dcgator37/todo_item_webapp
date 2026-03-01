@@ -47,8 +47,10 @@
 <h3>Add Item</h3>
 <form method="post" action="${pageContext.request.contextPath}/">
 <input type="hidden" name="action" value="add"/>
-<input type="text" name="text"/>
-<button type="submit">Add</button>
+    <label>
+        <input type="text" name="text"/>
+    </label>
+    <button type="submit">Add</button>
 </form>
 
 </body>
