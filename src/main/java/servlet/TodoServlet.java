@@ -12,6 +12,7 @@ public class TodoServlet extends HttpServlet {
 
     @Override
     public void init() {
+        System.out.println("=== TodoServlet init() CALLED ===");
         DatabaseUtil.initializeDatabase();
         dao = new TodoDatabase();
 
