@@ -39,8 +39,16 @@ public class DatabaseUtil {
     }
 
     public static void initializeDatabase() {
-        try (Connection conn = getConnection();
-             Statement stmt = conn.createStatement()) {
+        System.out.println("=== Initializing database ===");
+        System.out.println("DB_HOST=" + DB_HOST);
+        System.out.println("DB_NAME=" + DB_NAME);
+        System.out.println("DB_USER=" + DB_USER);
+        System.out.println("JDBC URL=" + URL);
+
+
+        try {
+            Connection conn = getConnection();
+            Statement stmt = conn.createStatement();
 
             stmt.execute("""
                 CREATE TABLE IF NOT EXISTS todo (
