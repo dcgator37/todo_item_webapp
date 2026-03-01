@@ -2,9 +2,11 @@ package servlet;
 
 import database.TodoDatabase;
 import jakarta.servlet.ServletException;
+import model.TodoItem;
 import util.DatabaseUtil;
 import jakarta.servlet.http.*;
 import java.io.IOException;
+import java.util.List;
 
 public class TodoServlet extends HttpServlet {
 
@@ -23,9 +25,11 @@ public class TodoServlet extends HttpServlet {
             throws ServletException, IOException {
         System.out.println("=== doGet called ===");
         try {
-            req.setAttribute("items", dao.findAll());
+            List<TodoItem> items = dao.findAll();
+            req.setAttribute("items", items);
             req.getRequestDispatcher("/index.jsp").forward(req, resp);
         } catch (Exception e) {
+            e.printStackTrace();
             throw new ServletException(e);
         }
     }
