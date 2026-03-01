@@ -47,20 +47,30 @@ public class DatabaseUtil {
 
 
         try {
+            System.out.println("Attempting DB connection...");
             Connection conn = getConnection();
+            System.out.println("Connection successful!");
+
             Statement stmt = conn.createStatement();
+            System.out.println("Statement created");
 
             stmt.execute("""
-                CREATE TABLE IF NOT EXISTS todo (
-                    id INT AUTO_INCREMENT PRIMARY KEY,
-                    text VARCHAR(255) NOT NULL
-                )
-            """);
+            CREATE TABLE IF NOT EXISTS todo (
+                id INT AUTO_INCREMENT PRIMARY KEY,
+                text VARCHAR(255) NOT NULL
+            )
+        """);
 
-            System.out.println("Database initialized");
+            System.out.println("=== Table creation SQL executed ===");
+
+            stmt.close();
+            conn.close();
+
+            System.out.println("=== Database initialized successfully ===");
 
         } catch (Exception e) {
-            throw new RuntimeException("Failed to initialize database", e);
+            System.out.println("!!! DATABASE INITIALIZATION FAILED !!!");
+            e.printStackTrace();
         }
     }
 }
