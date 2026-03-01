@@ -23,7 +23,7 @@ public class DatabaseUtil {
     static {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            System.out.println("MySQL JDBC Driver loaded explicitly");
+            System.out.println("MySQL JDBC Driver loaded explicitlyss");
         } catch (ClassNotFoundException e) {
             throw new RuntimeException("MySQL Driver not found", e);
         }
