@@ -25,6 +25,12 @@ public class TodoServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
         System.out.println("=== doGet called ===");
+
+        if (req.getRequestURI().equals(req.getContextPath() + "/")) {
+            resp.sendRedirect(req.getContextPath() + "/todos");
+            return;
+        }
+
         try {
             List<TodoItem> items = dao.findAll();
             System.out.println(items.size());
