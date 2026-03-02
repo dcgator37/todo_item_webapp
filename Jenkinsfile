@@ -26,7 +26,9 @@ pipeline {
 
         stage('Docker Build') {
             steps {
-                sh 'docker build -t $IMAGE_NAME .'
+                sh 'docker compose build --no-cache'
+                sh 'docker compose up'
+
             }
         }
     }
