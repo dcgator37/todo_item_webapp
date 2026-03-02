@@ -24,11 +24,6 @@ pipeline {
             }
         }
 
-        stage('Docker Build') {
-            steps {
-
-
-            }
         }
     }
 
