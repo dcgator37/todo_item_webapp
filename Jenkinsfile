@@ -7,19 +7,19 @@ pipeline {
 
     stages {
         stage('Checkout') {
-            steps {
+            steps withEnv(['PATH+EXTRA=/usr/sbin:/usr/bin:/sbin:/bin']) {
                 checkout scm
             }
         }
 
         stage('Build') {
-            steps {
+            steps withEnv(['PATH+EXTRA=/usr/sbin:/usr/bin:/sbin:/bin']) {
                 sh 'mvn clean package'
             }
         }
 
         stage('Test') {
-            steps {
+            steps withEnv(['PATH+EXTRA=/usr/sbin:/usr/bin:/sbin:/bin']) {
                 sh 'mvn test'
             }
         }
