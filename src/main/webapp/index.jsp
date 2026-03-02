@@ -8,6 +8,9 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page import="java.util.List" %>
 <%@ page import="model.TodoItem" %>
+<%@ taglib uri="jakarta.tags.core" prefix="c" %>
+
+
 
 <html>
 <head>
@@ -15,7 +18,29 @@
 </head>
 <body>
 
-<h2>Todo List</h2>
+<h2>Todo Items</h2>
+
+<jsp:useBean id="items" scope="request" type=""/>
+<p>Items attribute is: ${items}</p>
+<p>Items size: ${items.size()}</p>
+<c:if test="${empty items}">
+    <p><i>No items found</i></p>
+</c:if>
+
+<ul>
+    <c:forEach var="item" items="${items}">
+        <li>
+                ${item.text}
+            <form method="post" action="${pageContext.request.contextPath}/" style="display:inline">
+                <input type="hidden" name="action" value="delete"/>
+                <input type="hidden" name="id" value="${item.id}"/>
+                <button type="submit">Delete</button>
+            </form>
+        </li>
+    </c:forEach>
+</ul>
+
+<%--<h2>Todo List</h2>
 
 <ul>
     <%
@@ -42,7 +67,7 @@
     <%
         }
     %>
-</ul>
+</ul>--%>
 
 <h3>Add Item</h3>
 <form action="/" method="post">
