@@ -40,6 +40,8 @@ class TodoDatabaseTest {
                         .stream()
                         .anyMatch(i -> i.getText().equals("Test Item"))
         );
+
+        dao.delete(1);
     }
 
     @Test
