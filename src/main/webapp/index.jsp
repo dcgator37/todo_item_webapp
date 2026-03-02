@@ -9,7 +9,11 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page import="java.util.List" %>
 <%@ page import="model.TodoItem" %>
-<%@ taglib uri="jakarta.tags.core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+
+<%--<%@ taglib uri="jakarta.tags.core" prefix="c" %>--%>
 
 
 
@@ -71,7 +75,7 @@
 </ul>--%>
 
 <h3>Add Item</h3>
-<form action="/" method="post">
+<form action="${pageContext.request.contextPath}/" method="post">
 <input type="hidden" name="action" value="add"/>
     <label>
         <input type="text" name="text"/>

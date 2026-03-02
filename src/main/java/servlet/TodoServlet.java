@@ -29,7 +29,7 @@ public class TodoServlet extends HttpServlet {
             List<TodoItem> items = dao.findAll();
             System.out.println(items.size());
             req.setAttribute("items", items);
-            RequestDispatcher rd = req.getRequestDispatcher("index.jsp");
+            RequestDispatcher rd = req.getRequestDispatcher("/index.jsp");
             rd.forward(req,resp);
             //req.getRequestDispatcher("/index.jsp").forward(req, resp);
         } catch (Exception e) {
