@@ -41,7 +41,7 @@ class TodoDatabaseTest {
                         .anyMatch(i -> i.getText().equals("Test Item"))
         );
 
-        dao.delete(1);
+        //dao.delete(1);
     }
 
     @Test
@@ -62,12 +62,12 @@ class TodoDatabaseTest {
         }
 
         TodoDatabase dao = new TodoDatabase();
-        dao.add("Test Item");
-        dao.delete(2);
+        dao.add("2nd Test Item");
+        dao.delete(1);
         assertFalse(
                 dao.findAll()
                         .stream()
-                        .anyMatch(i -> i.getText().equals("Test Item"))
+                        .anyMatch(i -> i.getText().equals("2nd Test Item"))
         );
     }
 }
