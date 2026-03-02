@@ -63,7 +63,7 @@ class TodoDatabaseTest {
 
         TodoDatabase dao = new TodoDatabase();
         dao.add("Test Item");
-        dao.delete(1);
+        dao.delete(2);
         assertFalse(
                 dao.findAll()
                         .stream()
