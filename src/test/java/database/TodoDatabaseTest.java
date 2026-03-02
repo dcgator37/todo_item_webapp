@@ -1,5 +1,6 @@
 package database;
 
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -31,6 +32,21 @@ class TodoDatabaseTest {
 
         dao = new TodoDatabase();
         dao.add("Test Item");
+    }
+
+    @AfterEach
+    void tearDown() throws Exception {
+        try {
+            Connection conn = getConnection();
+            Statement stmt = conn.createStatement();
+            stmt.execute("""
+            DROP TABLE todo
+        """);
+            stmt.close();
+            conn.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @Test
@@ -80,8 +96,8 @@ class TodoDatabaseTest {
         }
 
         TodoDatabase dao = new TodoDatabase();
-        dao.add("2nd Test Item");
-        dao.delete(1);*/
+        dao.add("2nd Test Item");*/
+        dao.delete(1);
         assertFalse(
                 dao.findAll()
                         .stream()
