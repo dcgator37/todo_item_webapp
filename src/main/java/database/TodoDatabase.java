@@ -42,7 +42,7 @@ public class TodoDatabase {
             int rows = ps.executeUpdate();  // must be executeUpdate, not executeQuery
             System.out.println("Rows inserted: " + rows);
         } catch (Exception e) {
-            System.out.println("!!! DAO.add() FAILED !!!");
+
             e.printStackTrace();
             throw e;
         }
