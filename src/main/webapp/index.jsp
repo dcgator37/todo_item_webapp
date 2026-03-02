@@ -35,7 +35,7 @@
     <c:forEach var="item" items="${items}">
         <li>
                 ${item.text}
-            <form method="post" action="${pageContext.request.contextPath}/" style="display:inline">
+            <form method="post" action="${pageContext.request.contextPath}/todos" style="display:inline">
                 <input type="hidden" name="action" value="delete"/>
                 <input type="hidden" name="id" value="${item.id}"/>
                 <button type="submit">Delete</button>
