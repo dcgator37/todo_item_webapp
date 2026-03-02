@@ -1,3 +1,4 @@
+<%--@elvariable id="items" type=""--%>
 <%--
   Created by IntelliJ IDEA.
   User: dcgat
@@ -20,7 +21,7 @@
 
 <h2>Todo Items</h2>
 
-<jsp:useBean id="items" scope="request" type=""/>
+
 <p>Items attribute is: ${items}</p>
 <p>Items size: ${items.size()}</p>
 <c:if test="${empty items}">
