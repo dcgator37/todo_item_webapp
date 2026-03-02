@@ -14,17 +14,17 @@ pipeline {
         }
 
         stage('Build') {
-            steps { withEnv(['PATH+EXTRA=/usr/sbin:/usr/bin:/sbin:/bin']) {
+            steps {
                 sh 'mvn clean package'
             }
-            }
+
         }
 
         stage('Test') {
-            steps { withEnv(['PATH+EXTRA=/usr/sbin:/usr/bin:/sbin:/bin']) {
+            steps {
                 sh 'mvn test'
             }
-            }
+
         }
 
 
