@@ -59,6 +59,6 @@ public class TodoServlet extends HttpServlet {
             throw new RuntimeException(e);
         }
 
-        resp.sendRedirect(req.getContextPath() + "/");
+        resp.sendRedirect(req.getContextPath() + "/todos");
     }
 }
